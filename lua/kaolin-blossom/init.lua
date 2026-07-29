@@ -73,7 +73,7 @@ local function set_groups()
       fg = colorscheme.bg0,
     },
     Substitute = { link = 'IncSearch' },
-    CursorLineNr = { fg = colorscheme.gray0 },
+    CursorLineNr = { fg = colorscheme.crimson0 },
     MatchParen = { fg = colorscheme.red0, bg = bg },
     ModeMsg = { link = 'Normal' },
     MsgArea = { link = 'Normal' },
@@ -127,7 +127,7 @@ local function set_groups()
     Whitespace = { fg = colorscheme.vermilion0 },
     WildMenu = { bg = colorscheme.bg3 },
     Comment = {
-      fg = colorscheme.gray0,
+      fg = colorscheme.vermilion2,
       italic = config.italics.comments or false,
     },
 
