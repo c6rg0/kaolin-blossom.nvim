@@ -7,7 +7,7 @@ local colorscheme = {
 
 colorscheme.editorBackground = config.transparent and 'none' or '#453038'
 colorscheme.sidebarBackground = '#271f1f'
-colorscheme.popupBackground = '#453038'
+colorscheme.popupBackground = '#33242A'
 colorscheme.floatingWindowBackground = '#2E2025'
 colorscheme.menuOptionBackground = '#33242A'
 
