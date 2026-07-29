@@ -25,7 +25,8 @@ colorscheme.focusedBorder = '#2B2B2F'
 colorscheme.emphasizedBorder = '#303035'
 
 colorscheme.syntaxError = '#e84c58'
-colorscheme.syntaxFunction = '#eeeb28'
+colorscheme.syntaxFunction = '#dbb68f' -- This also affects selection text?
+colorscheme.search = '#a0586c' -- This also affects selection text?
 colorscheme.warningText = '#f3c91f'
 colorscheme.syntaxKeyword = '#eed891'
 colorscheme.linkText = '#688468'
@@ -34,9 +35,9 @@ colorscheme.warningEmphasis = '#CFB05F'
 colorscheme.successText = '#3e594e'
 colorscheme.errorText = '#e84c58'
 colorscheme.specialKeyword = '#dbb68f'
-colorscheme.commentText = '#65a0a1' -- or #688468
-colorscheme.syntaxOperator = '#CD8266'
-colorscheme.foregroundEmphasis = '#18181B'
 colorscheme.terminalGray = '#353b3c'
+colorscheme.commentText = '#353b3c' -- or #688468
+colorscheme.syntaxOperator = '#CD8266'
+colorscheme.foregroundEmphasis = '#a0586c'
 
 return colorscheme

@@ -66,7 +66,7 @@ local function set_groups()
     FoldColumn = { link = 'SignColumn' },
     IncSearch = {
       bg = utils.mix(
-        colorscheme.syntaxFunction,
+        colorscheme.search,
         colorscheme.editorBackground,
         math.abs(0.30)
       ),
@@ -137,7 +137,7 @@ local function set_groups()
       italic = config.italics.strings or false,
     },
     Character = { fg = colorscheme.stringText },
-    Number = { fg = colorscheme.foregroundEmphasis, bold = true },
+    Number = { fg = colorscheme.search, bold = true },
     Boolean = { fg = colorscheme.syntaxFunction },
     Float = { link = 'Number' },
 

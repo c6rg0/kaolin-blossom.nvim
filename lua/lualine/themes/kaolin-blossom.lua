@@ -1,64 +1,65 @@
 local colorscheme = require 'kaolin-blossom.colorscheme'
 local config = require 'kaolin-blossom.config'
-local theme = {}
 
-local bg = config.transparent and 'NONE' or colorscheme.editorBackground
+local bg = config.transparent and 'NONE' or colorscheme.popupBackground
 
-theme.normal = {
-  a = { bg = colorscheme.blue, fg = colorscheme.editorBackground, gui = 'bold' },
-  b = { bg = bg, fg = colorscheme.commentText },
-  c = { bg = bg, fg = colorscheme.editorBackground },
-}
-
-theme.insert = {
-  a = {
-    bg = colorscheme.syntaxError,
-    fg = colorscheme.editorBackground,
-    gui = 'bold',
+local theme = {
+  normal = {
+    a = { bg = bg, fg = colorscheme.inactiveSelectionText, gui = 'bold' },
+    b = { bg = bg, fg = colorscheme.inactiveSelectionText },
+    c = { bg = bg, fg = colorscheme.inactiveSelectionText },
   },
-  b = { bg = bg, fg = colorscheme.commentText },
-}
 
-theme.terminal = {
-  a = {
-    bg = colorscheme.successText,
-    fg = colorscheme.editorBackground,
-    gui = 'bold',
+  insert = {
+    a = {
+      bg = colorscheme.syntaxOperator,
+      fg = colorscheme.mainText,
+      gui = 'bold',
+    },
+    b = { bg = bg, fg = colorscheme.inactiveSelectionText },
   },
-  b = { bg = bg, fg = colorscheme.commentText },
-}
 
-theme.command = {
-  a = {
-    bg = colorscheme.successText,
-    fg = colorscheme.editorBackground,
-    gui = 'bold',
+  terminal = {
+    a = {
+      bg = colorscheme.successText,
+      fg = colorscheme.mainText,
+      gui = 'bold',
+    },
+    b = { bg = bg, fg = colorscheme.inactiveSelectionText },
   },
-  b = { bg = bg, fg = colorscheme.commentText },
-}
 
-theme.visual = {
-  a = {
-    bg = colorscheme.syntaxKeyword,
-    fg = colorscheme.editorBackground,
-    gui = 'bold',
+  command = {
+    a = {
+      bg = colorscheme.successText,
+      fg = colorscheme.mainText,
+      gui = 'bold',
+    },
+    b = { bg = bg, fg = colorscheme.inactiveSelectionText },
   },
-  b = { bg = bg, fg = colorscheme.commentText },
-}
 
-theme.replace = {
-  a = {
-    bg = colorscheme.warningText,
-    fg = colorscheme.editorBackground,
-    gui = 'bold',
+  visual = {
+    a = {
+      bg = colorscheme.syntaxKeyword,
+      fg = colorscheme.mainText,
+      gui = 'bold',
+    },
+    b = { bg = bg, fg = colorscheme.inactiveSelectionText },
   },
-  b = { bg = bg, fg = colorscheme.commentText },
-}
 
-theme.inactive = {
-  a = { bg = colorscheme.commentText, fg = colorscheme.editorBackground },
-  b = { bg = bg, fg = colorscheme.warningText, gui = 'bold' },
-  c = { bg = bg, fg = colorscheme.warningText },
+  replace = {
+    a = {
+      bg = colorscheme.errorText,
+      fg = colorscheme.mainText,
+      gui = 'bold',
+    },
+    b = { bg = bg, fg = colorscheme.inactiveSelectionText },
+  },
+
+  inactive = {
+    a = { bg = colorscheme.mainText, fg = colorscheme.inactiveSelectionText },
+    b = { bg = bg, fg = colorscheme.warningText, gui = 'bold' },
+    c = { bg = bg, fg = colorscheme.warningText },
+  }
 }
 
 return theme
