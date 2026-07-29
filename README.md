@@ -1,13 +1,15 @@
-# Koalin blossom colour scheme
+# Koalin-blossom colour scheme for neovim (and more)
 - Ported from the [emacs-koalin-themes](https://github.com/ogdenwebb/emacs-kaolin-themes)
+
+![screenshot](screenshot.png)
 
 # Use
 ## Download
 ```lua
 vim.pack.add({
-  -- Previous inputs
   "https://github.com/c6rg0/kaolin-blossom.nvim",
 })
+-- Reload neovim and follow the prompt(s)
 ```
 
 ## Setup and config
@@ -32,12 +34,16 @@ vim.cmd([[colorscheme kaolin-blossom]])
 ```
 
 # Features
-- LSP/Treesitter (afaik) support
+- LSP/Treesitter support (afaik)
 - Lualine support
-- An extra kitty terminal config
+- Includes an extra kitty terminal config
 
 ## To do
-- Include showcase images
-- Include colour pallete image
-- Possibly add the rest of the kaolin colours
+- Made && include a colour pallete image
+- Fix any small details (e.g focused line number, comments)
+- Add the rest of the kaolin colour schemes
+
+# Contrubuting
+- If you'd like to make a change - add a feature or fix an issue - you can contribute to this repo.
+- To do so, make a fork (using github), create changes to your copy and submit a pull request to merge.
 
