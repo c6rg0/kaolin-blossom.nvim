@@ -6,162 +6,162 @@ local utils = require 'kaolin-blossom.utils'
 local theme = {}
 
 local function set_terminal_colors()
-  vim.g.terminal_color_0 = colorscheme.editorBackground
-  vim.g.terminal_color_1 = colorscheme.syntaxError
-  vim.g.terminal_color_2 = colorscheme.successText
-  vim.g.terminal_color_3 = colorscheme.warningEmphasis
-  vim.g.terminal_color_4 = colorscheme.syntaxFunction
-  vim.g.terminal_color_5 = colorscheme.syntaxKeyword
-  vim.g.terminal_color_6 = colorscheme.linkText
-  vim.g.terminal_color_7 = colorscheme.mainText
-  vim.g.terminal_color_8 = colorscheme.inactiveText
-  vim.g.terminal_color_9 = colorscheme.errorText
-  vim.g.terminal_color_10 = colorscheme.stringText
-  vim.g.terminal_color_11 = colorscheme.warningText
-  vim.g.terminal_color_12 = colorscheme.syntaxOperator
-  vim.g.terminal_color_13 = colorscheme.syntaxError
-  vim.g.terminal_color_14 = colorscheme.stringText
-  vim.g.terminal_color_15 = colorscheme.commentText
-  vim.g.terminal_color_background = colorscheme.editorBackground
-  vim.g.terminal_color_foreground = colorscheme.mainText
+  vim.g.terminal_color_0 = colorscheme.bg0
+  vim.g.terminal_color_1 = colorscheme.red0
+  vim.g.terminal_color_2 = colorscheme.green0
+  vim.g.terminal_color_3 = colorscheme.amber1
+  vim.g.terminal_color_4 = colorscheme.orange0
+  vim.g.terminal_color_5 = colorscheme.amber2
+  vim.g.terminal_color_6 = colorscheme.green1
+  vim.g.terminal_color_7 = colorscheme.fg0
+  vim.g.terminal_color_8 = colorscheme.vermilion1
+  vim.g.terminal_color_9 = colorscheme.red0
+  vim.g.terminal_color_10 = colorscheme.cyan0
+  vim.g.terminal_color_11 = colorscheme.amber0
+  vim.g.terminal_color_12 = colorscheme.vermilion0
+  vim.g.terminal_color_13 = colorscheme.red0
+  vim.g.terminal_color_14 = colorscheme.cyan0
+  vim.g.terminal_color_15 = colorscheme.gray0
+  vim.g.terminal_color_background = colorscheme.bg0
+  vim.g.terminal_color_foreground = colorscheme.fg0
 end
 
 local function set_groups()
-  local bg = config.transparent and 'NONE' or colorscheme.editorBackground
+  local bg = config.transparent and 'NONE' or colorscheme.bg0
   local diff_add =
-    utils.shade(colorscheme.successText, 0.5, colorscheme.editorBackground)
+    utils.shade(colorscheme.green0, 0.5, colorscheme.bg0)
   local diff_delete =
-    utils.shade(colorscheme.syntaxError, 0.5, colorscheme.editorBackground)
+    utils.shade(colorscheme.red0, 0.5, colorscheme.bg0)
   local diff_change =
-    utils.shade(colorscheme.syntaxFunction, 0.5, colorscheme.editorBackground)
+    utils.shade(colorscheme.orange0, 0.5, colorscheme.bg0)
   local diff_text =
-    utils.shade(colorscheme.warningEmphasis, 0.5, colorscheme.editorBackground)
+    utils.shade(colorscheme.amber1, 0.5, colorscheme.bg0)
 
   local groups = {
     -- base
-    Normal = { fg = colorscheme.mainText, bg = bg },
-    LineNr = { fg = colorscheme.lineNumberText },
+    Normal = { fg = colorscheme.fg0, bg = bg },
+    LineNr = { fg = colorscheme.crimson1 },
     ColorColumn = {
-      bg = utils.shade(colorscheme.linkText, 0.5, colorscheme.editorBackground),
+      bg = utils.shade(colorscheme.green1, 0.5, colorscheme.bg0),
     },
     Conceal = {},
-    Cursor = { fg = colorscheme.editorBackground, bg = colorscheme.mainText },
+    Cursor = { fg = colorscheme.bg0, bg = colorscheme.fg0 },
     lCursor = { link = 'Cursor' },
     CursorIM = { link = 'Cursor' },
-    CursorLine = { bg = colorscheme.popupBackground },
+    CursorLine = { bg = colorscheme.bg3 },
     CursorColumn = { link = 'CursorLine' },
-    Directory = { fg = colorscheme.syntaxFunction },
+    Directory = { fg = colorscheme.orange0 },
     DiffAdd = { bg = bg, fg = diff_add },
     DiffChange = { bg = bg, fg = diff_change },
     DiffDelete = { bg = bg, fg = diff_delete },
     DiffText = { bg = bg, fg = diff_text },
-    EndOfBuffer = { fg = colorscheme.syntaxKeyword },
+    EndOfBuffer = { fg = colorscheme.amber2 },
     TermCursor = { link = 'Cursor' },
     TermCursorNC = { link = 'Cursor' },
-    ErrorMsg = { fg = colorscheme.syntaxError },
-    VertSplit = { fg = colorscheme.windowBorder, bg = bg },
+    ErrorMsg = { fg = colorscheme.red0 },
+    VertSplit = { fg = colorscheme.black0, bg = bg },
     Winseparator = { link = 'VertSplit' },
     SignColumn = { link = 'Normal' },
-    Folded = { fg = colorscheme.mainText, bg = colorscheme.popupBackground },
+    Folded = { fg = colorscheme.fg0, bg = colorscheme.bg3 },
     FoldColumn = { link = 'SignColumn' },
     IncSearch = {
       bg = utils.mix(
-        colorscheme.search,
-        colorscheme.editorBackground,
+        colorscheme.crimson0,
+        colorscheme.bg0,
         math.abs(0.30)
       ),
-      fg = colorscheme.editorBackground,
+      fg = colorscheme.bg0,
     },
     Substitute = { link = 'IncSearch' },
-    CursorLineNr = { fg = colorscheme.commentText },
-    MatchParen = { fg = colorscheme.syntaxError, bg = bg },
+    CursorLineNr = { fg = colorscheme.gray0 },
+    MatchParen = { fg = colorscheme.red0, bg = bg },
     ModeMsg = { link = 'Normal' },
     MsgArea = { link = 'Normal' },
     -- MsgSeparator = {},
-    MoreMsg = { fg = colorscheme.syntaxFunction },
-    NonText = { fg = utils.shade(colorscheme.editorBackground, 0.30) },
-    NormalFloat = { bg = colorscheme.floatingWindowBackground },
+    MoreMsg = { fg = colorscheme.orange0 },
+    NonText = { fg = utils.shade(colorscheme.bg0, 0.30) },
+    NormalFloat = { bg = colorscheme.bg2 },
     NormalNC = { link = 'Normal' },
     Pmenu = { link = 'NormalFloat' },
-    PmenuSel = { bg = colorscheme.menuOptionBackground },
+    PmenuSel = { bg = colorscheme.bg3 },
     PmenuSbar = {
       bg = utils.shade(
-        colorscheme.syntaxFunction,
+        colorscheme.orange0,
         0.5,
-        colorscheme.editorBackground
+        colorscheme.bg0
       ),
     },
-    PmenuThumb = { bg = utils.shade(colorscheme.editorBackground, 0.20) },
-    Question = { fg = colorscheme.syntaxFunction },
-    QuickFixLine = { fg = colorscheme.syntaxFunction },
-    SpecialKey = { fg = colorscheme.syntaxOperator },
-    StatusLine = { fg = colorscheme.mainText, bg = bg },
+    PmenuThumb = { bg = utils.shade(colorscheme.bg0, 0.20) },
+    Question = { fg = colorscheme.orange0 },
+    QuickFixLine = { fg = colorscheme.orange0 },
+    SpecialKey = { fg = colorscheme.vermilion0 },
+    StatusLine = { fg = colorscheme.fg0, bg = bg },
     StatusLineNC = {
-      fg = colorscheme.inactiveText,
-      bg = colorscheme.sidebarBackground,
+      fg = colorscheme.vermilion1,
+      bg = colorscheme.bg0,
     },
     TabLine = {
-      bg = colorscheme.sidebarBackground,
-      fg = colorscheme.inactiveText,
+      bg = colorscheme.bg0,
+      fg = colorscheme.vermilion1,
     },
     TabLineFill = { link = 'TabLine' },
     TabLineSel = {
-      bg = colorscheme.editorBackground,
-      fg = colorscheme.emphasisText,
+      bg = colorscheme.bg0,
+      fg = colorscheme.amber2,
     },
-    Search = { bg = utils.shade(colorscheme.stringText, 0.40, colorscheme.bg) },
-    SpellBad = { undercurl = true, sp = colorscheme.syntaxError },
-    SpellCap = { undercurl = true, sp = colorscheme.syntaxFunction },
-    SpellLocal = { undercurl = true, sp = colorscheme.syntaxKeyword },
-    SpellRare = { undercurl = true, sp = colorscheme.warningText },
-    Title = { fg = colorscheme.syntaxFunction },
+    Search = { bg = utils.shade(colorscheme.cyan0, 0.40, colorscheme.bg) },
+    SpellBad = { undercurl = true, sp = colorscheme.red0 },
+    SpellCap = { undercurl = true, sp = colorscheme.orange0 },
+    SpellLocal = { undercurl = true, sp = colorscheme.amber2 },
+    SpellRare = { undercurl = true, sp = colorscheme.amber0 },
+    Title = { fg = colorscheme.orange0 },
     Visual = {
       bg = utils.shade(
-        colorscheme.syntaxFunction,
+        colorscheme.orange0,
         0.40,
-        colorscheme.editorBackground
+        colorscheme.bg0
       ),
     },
     VisualNOS = { link = 'Visual' },
-    WarningMsg = { fg = colorscheme.warningText },
-    Whitespace = { fg = colorscheme.syntaxOperator },
-    WildMenu = { bg = colorscheme.menuOptionBackground },
+    WarningMsg = { fg = colorscheme.amber0 },
+    Whitespace = { fg = colorscheme.vermilion0 },
+    WildMenu = { bg = colorscheme.bg3 },
     Comment = {
-      fg = colorscheme.commentText,
+      fg = colorscheme.gray0,
       italic = config.italics.comments or false,
     },
 
-    Constant = { fg = colorscheme.syntaxError },
+    Constant = { fg = colorscheme.red0 },
     String = {
-      fg = colorscheme.stringText,
+      fg = colorscheme.cyan0,
       italic = config.italics.strings or false,
     },
-    Character = { fg = colorscheme.stringText },
-    Number = { fg = colorscheme.search, bold = true },
-    Boolean = { fg = colorscheme.syntaxFunction },
+    Character = { fg = colorscheme.cyan0 },
+    Number = { fg = colorscheme.crimson0, bold = true },
+    Boolean = { fg = colorscheme.orange0 },
     Float = { link = 'Number' },
 
-    Identifier = { fg = colorscheme.mainText },
-    Function = { fg = colorscheme.syntaxKeyword },
-    Method = { fg = colorscheme.syntaxKeyword },
-    Property = { fg = colorscheme.syntaxFunction },
+    Identifier = { fg = colorscheme.fg0 },
+    Function = { fg = colorscheme.amber2 },
+    Method = { fg = colorscheme.amber2 },
+    Property = { fg = colorscheme.orange0 },
     Field = { link = 'Property' },
-    Parameter = { fg = colorscheme.mainText },
-    Statement = { fg = colorscheme.syntaxError },
-    Conditional = { fg = colorscheme.syntaxError },
+    Parameter = { fg = colorscheme.fg0 },
+    Statement = { fg = colorscheme.red0 },
+    Conditional = { fg = colorscheme.red0 },
     -- Repeat = {},
-    Label = { fg = colorscheme.syntaxFunction },
-    Operator = { fg = colorscheme.syntaxError },
+    Label = { fg = colorscheme.orange0 },
+    Operator = { fg = colorscheme.red0 },
     Keyword = { link = 'Statement', italic = config.italics.keywords or false },
-    Exception = { fg = colorscheme.syntaxError },
+    Exception = { fg = colorscheme.red0 },
 
     PreProc = { link = 'Keyword' },
     -- Include = {},
-    Define = { fg = colorscheme.syntaxKeyword },
+    Define = { fg = colorscheme.amber2 },
     Macro = { link = 'Define' },
-    PreCondit = { fg = colorscheme.syntaxError },
+    PreCondit = { fg = colorscheme.red0 },
 
-    Type = { fg = colorscheme.syntaxKeyword },
+    Type = { fg = colorscheme.amber2 },
     Struct = { link = 'Type' },
     Class = { link = 'Type' },
 
@@ -170,21 +170,21 @@ local function set_groups()
     -- Typedef = {},
 
     Attribute = { link = 'Character' },
-    Punctuation = { fg = colorscheme.syntaxOperator },
-    Special = { fg = colorscheme.syntaxOperator },
+    Punctuation = { fg = colorscheme.vermilion0 },
+    Special = { fg = colorscheme.vermilion0 },
 
-    SpecialChar = { fg = colorscheme.syntaxError },
-    Tag = { fg = colorscheme.stringText },
-    Delimiter = { fg = colorscheme.syntaxOperator },
+    SpecialChar = { fg = colorscheme.red0 },
+    Tag = { fg = colorscheme.cyan0 },
+    Delimiter = { fg = colorscheme.vermilion0 },
     -- SpecialComment = {},
-    Debug = { fg = colorscheme.specialKeyword },
+    Debug = { fg = colorscheme.orange0 },
 
     Underlined = { underline = true },
     Bold = { bold = true },
     Italic = { italic = true },
-    Ignore = { fg = colorscheme.editorBackground },
+    Ignore = { fg = colorscheme.bg0 },
     Error = { link = 'ErrorMsg' },
-    Todo = { fg = colorscheme.warningText, bold = true },
+    Todo = { fg = colorscheme.amber0, bold = true },
 
     -- LspReferenceText = {},
     -- LspReferenceRead = {},
@@ -195,8 +195,8 @@ local function set_groups()
 
     DiagnosticError = { link = 'Error' },
     DiagnosticWarn = { link = 'WarningMsg' },
-    DiagnosticInfo = { fg = colorscheme.syntaxFunction },
-    DiagnosticHint = { fg = colorscheme.warningEmphasis },
+    DiagnosticInfo = { fg = colorscheme.orange0 },
+    DiagnosticHint = { fg = colorscheme.amber1 },
     DiagnosticVirtualTextError = { link = 'DiagnosticError' },
     DiagnosticVirtualTextWarn = { link = 'DiagnosticWarn' },
     DiagnosticVirtualTextInfo = { link = 'DiagnosticInfo' },
@@ -226,40 +226,40 @@ local function set_groups()
     --
     -- For more information see https://github.com/rktjmp/lush.nvim/issues/109
 
-    ['@text'] = { fg = colorscheme.mainText },
+    ['@text'] = { fg = colorscheme.fg0 },
     ['@texcolorscheme.literal'] = { link = 'Property' },
     -- ["@texcolorscheme.reference"] = {},
     ['@texcolorscheme.strong'] = { link = 'Bold' },
     ['@texcolorscheme.italic'] = { link = 'Italic' },
     ['@texcolorscheme.title'] = { link = 'Keyword' },
     ['@texcolorscheme.uri'] = {
-      fg = colorscheme.syntaxFunction,
-      sp = colorscheme.syntaxFunction,
+      fg = colorscheme.orange0,
+      sp = colorscheme.orange0,
       underline = true,
     },
     ['@texcolorscheme.underline'] = { link = 'Underlined' },
-    ['@symbol'] = { fg = colorscheme.syntaxOperator },
+    ['@symbol'] = { fg = colorscheme.vermilion0 },
     ['@texcolorscheme.todo'] = { link = 'Todo' },
     ['@comment'] = { link = 'Comment' },
     ['@punctuation'] = { link = 'Punctuation' },
-    ['@punctuation.bracket'] = { fg = colorscheme.warningEmphasis },
-    ['@punctuation.delimiter'] = { fg = colorscheme.syntaxError },
+    ['@punctuation.bracket'] = { fg = colorscheme.amber1 },
+    ['@punctuation.delimiter'] = { fg = colorscheme.red0 },
     ['@punctuation.terminator.statement'] = { link = 'Delimiter' },
-    ['@punctuation.special'] = { fg = colorscheme.syntaxError },
-    ['@punctuation.separator.keyvalue'] = { fg = colorscheme.syntaxError },
+    ['@punctuation.special'] = { fg = colorscheme.red0 },
+    ['@punctuation.separator.keyvalue'] = { fg = colorscheme.red0 },
 
-    ['@texcolorscheme.diff.add'] = { fg = colorscheme.successText },
-    ['@texcolorscheme.diff.delete'] = { fg = colorscheme.errorText },
+    ['@texcolorscheme.diff.add'] = { fg = colorscheme.green0 },
+    ['@texcolorscheme.diff.delete'] = { fg = colorscheme.red0 },
 
     ['@constant'] = { link = 'Constant' },
-    ['@constant.builtin'] = { fg = colorscheme.syntaxFunction },
+    ['@constant.builtin'] = { fg = colorscheme.orange0 },
     ['@constancolorscheme.builtin'] = { link = 'Keyword' },
     -- ["@constancolorscheme.macro"] = {},
     -- ["@define"] = {},
     -- ["@macro"] = {},
     ['@string'] = { link = 'String' },
-    ['@string.escape'] = { fg = utils.shade(colorscheme.stringText, 0.45) },
-    ['@string.special'] = { fg = utils.shade(colorscheme.syntaxFunction, 0.45) },
+    ['@string.escape'] = { fg = utils.shade(colorscheme.cyan0, 0.45) },
+    ['@string.special'] = { fg = utils.shade(colorscheme.orange0, 0.45) },
     -- ["@character"] = {},
     -- ["@character.special"] = {},
     ['@number'] = { link = 'Number' },
@@ -276,26 +276,26 @@ local function set_groups()
     ['@method'] = { link = 'Function' },
     ['@field'] = { link = 'Property' },
     ['@property'] = { link = 'Property' },
-    ['@constructor'] = { fg = colorscheme.syntaxFunction },
+    ['@constructor'] = { fg = colorscheme.orange0 },
     -- ["@conditional"] = {},
     -- ["@repeat"] = {},
     ['@label'] = { link = 'Label' },
     ['@operator'] = { link = 'Operator' },
     ['@exception'] = { link = 'Exception' },
     ['@variable'] = {
-      fg = colorscheme.syntaxFunction,
+      fg = colorscheme.orange0,
       italic = config.italics.variables or false,
     },
-    ['@variable.builtin'] = { fg = colorscheme.syntaxFunction },
-    ['@variable.member'] = { fg = colorscheme.mainText },
+    ['@variable.builtin'] = { fg = colorscheme.orange0 },
+    ['@variable.member'] = { fg = colorscheme.fg0 },
     ['@variable.parameter'] = {
-      fg = colorscheme.mainText,
+      fg = colorscheme.fg0,
       italic = config.italics.variables or false,
     },
     ['@type'] = { link = 'Type' },
-    ['@type.definition'] = { fg = colorscheme.mainText },
-    ['@type.builtin'] = { fg = colorscheme.syntaxFunction },
-    ['@type.qualifier'] = { fg = colorscheme.syntaxFunction },
+    ['@type.definition'] = { fg = colorscheme.fg0 },
+    ['@type.builtin'] = { fg = colorscheme.orange0 },
+    ['@type.qualifier'] = { fg = colorscheme.orange0 },
     ['@keyword'] = { link = 'Keyword' },
     -- ["@storageclass"] = {},
     -- ["@structure"] = {},
@@ -303,16 +303,16 @@ local function set_groups()
     ['@annotation'] = { link = 'Label' },
     -- ["@include"] = {},
     -- ["@preproc"] = {},
-    ['@debug'] = { fg = colorscheme.specialKeyword },
+    ['@debug'] = { fg = colorscheme.orange0 },
     ['@tag'] = { link = 'Tag' },
     ['@tag.builtin'] = { link = 'Tag' },
-    ['@tag.delimiter'] = { fg = colorscheme.syntaxOperator },
-    ['@tag.attribute'] = { fg = colorscheme.syntaxKeyword },
-    ['@tag.jsx.element'] = { fg = colorscheme.syntaxFunction },
-    ['@attribute'] = { fg = colorscheme.syntaxKeyword },
+    ['@tag.delimiter'] = { fg = colorscheme.vermilion0 },
+    ['@tag.attribute'] = { fg = colorscheme.amber2 },
+    ['@tag.jsx.element'] = { fg = colorscheme.orange0 },
+    ['@attribute'] = { fg = colorscheme.amber2 },
     ['@error'] = { link = 'Error' },
     ['@warning'] = { link = 'WarningMsg' },
-    ['@info'] = { fg = colorscheme.syntaxFunction },
+    ['@info'] = { fg = colorscheme.orange0 },
 
     -- Specific languages
     -- overrides
@@ -325,7 +325,7 @@ local function set_groups()
     ['@lsp.type.type'] = { link = '@type' },
     ['@lsp.type.class'] = { link = '@type' },
     ['@lsp.type.enum'] = { link = '@type' },
-    ['@lsp.type.enumMember'] = { fg = colorscheme.syntaxFunction },
+    ['@lsp.type.enumMember'] = { fg = colorscheme.orange0 },
     ['@lsp.type.interface'] = { link = '@type' },
     ['@lsp.type.struct'] = { link = '@type' },
     ['@lsp.type.parameter'] = { link = '@parameter' },

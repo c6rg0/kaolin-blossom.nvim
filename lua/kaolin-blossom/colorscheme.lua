@@ -1,43 +1,29 @@
 local config = require 'kaolin-blossom.config'
 
 local colorscheme = {
-  standardWhite = '#f2f2f2',
-  standardBlack = '#161618',
+  bg0 = config.transparent and 'none' or '#2F2025',
+  bg1 = '#33242A',
+  bg2 = '#3A2930',
+  bg3 = '#453038',
+  fg0 = '#f2f2f2',
+  gray0 = '#353b3c',
+  black0 = '#161618',
+  black1 = '#2B2B2F',
+  black2 = '#303035',
+  crimson0 = '#a0586c',
+  crimson1 = '#6B4B53',
+  red0 = '#e84c58',
+  orange0 = '#dbb68f',
+  vermilion0 = '#CD8266',
+  vermilion1 = '#40332E',
+  vermilion2 = '#847068',
+  amber0 = '#f3c91f',
+  amber1 = '#CFB05F',
+  amber2 = '#eed891',
+  amber3 = '#EED47E',
+  cyan0 = '#65a0a1',
+  green0 = '#3e594e',
+  green1 = '#688468',
 }
-
-colorscheme.editorBackground = config.transparent and 'none' or '#2F2025'
-colorscheme.sidebarBackground = '#2F2025'
-colorscheme.popupBackground = '#453038'
-colorscheme.floatingWindowBackground = '#3A2930'
-colorscheme.menuOptionBackground = '#453038'
-
-colorscheme.mainText = '#f2f2f2'
-colorscheme.emphasisText = '#eed891'
-colorscheme.commandText = '#f2f2f2'
-colorscheme.inactiveText = '#40332E'
-colorscheme.disabledText = '#CFB05F'
-colorscheme.lineNumberText = '#6B4B53'
-colorscheme.selectedText = '#453038'
-colorscheme.inactiveSelectionText = '#847068'
-
-colorscheme.windowBorder = '#161618'
-colorscheme.focusedBorder = '#2B2B2F'
-colorscheme.emphasizedBorder = '#303035'
-
-colorscheme.syntaxError = '#e84c58'
-colorscheme.syntaxFunction = '#dbb68f' -- This also affects selection text?
-colorscheme.search = '#a0586c' -- This also affects selection text?
-colorscheme.warningText = '#f3c91f'
-colorscheme.syntaxKeyword = '#eed891'
-colorscheme.linkText = '#688468'
-colorscheme.stringText = '#65a0a1'
-colorscheme.warningEmphasis = '#CFB05F'
-colorscheme.successText = '#3e594e'
-colorscheme.errorText = '#e84c58'
-colorscheme.specialKeyword = '#dbb68f'
-colorscheme.terminalGray = '#353b3c'
-colorscheme.commentText = '#353b3c' -- or #688468
-colorscheme.syntaxOperator = '#CD8266'
-colorscheme.foregroundEmphasis = '#a0586c'
 
 return colorscheme
