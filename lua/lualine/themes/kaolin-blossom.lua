@@ -1,21 +1,42 @@
 -- This will be able to run agnostic of colourscheme variant
--- once I sort out how to handle the imports right below
+-- once I figure out how to handle the imports
 
-local colorscheme = require 'kaolin-blossom.colorscheme'
+local kaolin_blossom = require 'kaolin-blossom.colorscheme'
+local colorscheme = kaolin_blossom.roles
 local config = require 'kaolin-blossom.config'
-local bg = config.transparent and 'NONE' or colorscheme.barBg
+local barBg = config.transparent and 'NONE' or colorscheme.barBg
 
 local theme = {
   normal = {
-    a = { bg = bg, fg = colorscheme.barFg, gui = 'bold' },
-    b = { bg = bg, fg = colorscheme.barFg },
-    c = { bg = bg, fg = colorscheme.barFg },
+    a = {
+      bg = barBg,
+      fg = colorscheme.barFg,
+      gui = 'bold'
+    },
+    b = {
+      bg = barBg,
+      fg = colorscheme.barFg
+    },
+    c = {
+      bg = barBg,
+      fg = colorscheme.barFg
+    },
   },
 
   inactive = {
-    a = { bg = colorscheme.fg0, fg = colorscheme.barFg },
-    b = { bg = bg, fg = colorscheme.inactiveFg, gui = 'bold' },
-    c = { bg = bg, fg = colorscheme.inactiveFg },
+    a = {
+      bg = colorscheme.fg,
+      fg = colorscheme.barFg
+    },
+    b = {
+      bg = barBg,
+      fg = colorscheme.inactiveFg,
+      gui = 'bold'
+    },
+    c = {
+      bg = barBg,
+      fg = colorscheme.inactiveFg
+    },
   },
 
   insert = {
@@ -24,7 +45,10 @@ local theme = {
       fg = colorscheme.insertFg,
       gui = 'bold',
     },
-    b = { bg = bg, fg = colorscheme.barFg },
+    b = {
+      bg = barBg,
+      fg = colorscheme.barFg
+    },
   },
 
   terminal = {
@@ -33,7 +57,10 @@ local theme = {
       fg = colorscheme.terminalFg,
       gui = 'bold',
     },
-    b = { bg = bg, fg = colorscheme.barFg },
+    b = {
+      bg = barBg,
+      fg = colorscheme.barFg
+    },
   },
 
   command = {
@@ -42,7 +69,10 @@ local theme = {
       fg = colorscheme.commandFg,
       gui = 'bold',
     },
-    b = { bg = bg, fg = colorscheme.barFg },
+    b = {
+      bg = barBg,
+      fg = colorscheme.barFg
+    },
   },
 
   visual = {
@@ -51,7 +81,10 @@ local theme = {
       fg = colorscheme.visualFg,
       gui = 'bold',
     },
-    b = { bg = bg, fg = colorscheme.barFg },
+    b = {
+      bg = barBg,
+      fg = colorscheme.barFg
+    },
   },
 
   replace = {
@@ -60,7 +93,10 @@ local theme = {
       fg = colorscheme.replaceFg,
       gui = 'bold',
     },
-    b = { bg = bg, fg = colorscheme.barFg },
+    b = {
+      bg = barBg,
+      fg = colorscheme.barFg
+    },
   },
 }
 

@@ -48,8 +48,8 @@ local colorscheme = {
   interactiveText = ansi_colours.brightBlack,
   comment = variant_colours.vermilion1,
   string = ansi_colours.cyan,
-  accent = ansi_colours.orange,
-  variable = ansi_colours.orange,
+  accent = variant_colours.orange,
+  variable = variant_colours.orange,
   definition = ansi_colours.yellow,
 
   -- Two different colours for punctuation (and 3 variables?)
@@ -86,6 +86,10 @@ local colorscheme = {
   replaceBg = ansi_colours.red,
   replaceFg = ansi_colours.brightWhite,
 }
+
+for key, value in pairs(colorscheme) do
+  assert(value ~= nil, ('colorscheme role "%s" is nil'):format(key))
+end
 
 return {
   ansi = ansi_colours,

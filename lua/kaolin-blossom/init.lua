@@ -63,7 +63,7 @@ local function set_groups()
     TermCursor = { link = 'Cursor' },
     TermCursorNC = { link = 'Cursor' },
     ErrorMsg = { fg = colorscheme.err },
-    VertSplit = { fg = colorscheme.black0, bg = bg },
+    VertSplit = { fg = colorscheme.border, bg = bg },
     Winseparator = { link = 'VertSplit' },
     SignColumn = { link = 'Normal' },
     Folded = { fg = colorscheme.fg, bg = colorscheme.bgHighlight },
