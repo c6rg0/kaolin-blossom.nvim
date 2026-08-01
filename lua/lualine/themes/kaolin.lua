@@ -1,9 +1,15 @@
--- This will be able to run agnostic of colourscheme variant
--- once I figure out how to handle the imports
+local config = require 'kaolin.config'
+local kaolin = {}
 
-local kaolin_blossom = require 'kaolin-blossom.colorscheme'
-local colorscheme = kaolin_blossom.roles
-local config = require 'kaolin-blossom.config'
+if config.style == "blossom" then
+  kaolin = require 'kaolin.blossom'
+elseif config.style == "shiva" then
+  kaolin = require 'kaolin.shiva'
+else
+  kaolin = require 'kaolin.blossom'
+end
+
+local colorscheme = kaolin.roles
 local barBg = config.transparent and 'NONE' or colorscheme.barBg
 
 local theme = {

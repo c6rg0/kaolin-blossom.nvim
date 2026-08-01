@@ -1,12 +1,20 @@
-local bufferline = require 'kaolin-blossom.integrations.bufferline'
-local cmp = require 'kaolin-blossom.integrations.cmp'
+local config = require 'kaolin.config'
+local kaolin = {}
 
-local kaolin_blossom = require 'kaolin-blossom.colorscheme'
-local ansi_colours = kaolin_blossom.ansi
-local colorscheme = kaolin_blossom.roles
+if config.style == "blossom" then
+  kaolin = require 'kaolin.blossom'
+elseif config.style == "shiva" then
+  kaolin = require 'kaolin.shiva'
+else
+  kaolin = require 'kaolin.blossom'
+end
 
-local config = require 'kaolin-blossom.config'
-local utils = require 'kaolin-blossom.utils'
+local ansi_colours = kaolin.ansi
+local colorscheme = kaolin.roles
+
+local utils = require 'kaolin.utils'
+local bufferline = require 'kaolin.integrations.bufferline'
+local cmp = require 'kaolin.integrations.cmp'
 local theme = {}
 
 local function set_terminal_colors()
@@ -343,7 +351,7 @@ local function set_groups()
   }
 
   -- integrations
-  groups = vim.tbl_extend('force', groups, cmp.highlights())
+  groups = vim.tbl_extend('force', groups, cmp.highlights(colorscheme))
 
   -- overrides
   groups = vim.tbl_extend(
@@ -358,20 +366,19 @@ local function set_groups()
   end
 end
 
+-- Entry point: ":lua require("kaolin").setup({})"
 function theme.setup(values)
   setmetatable(
     config,
-    { __index = vim.tbl_extend('force', config.defaults, values) }
+    { __index = vim.tbl_deep_extend("force", {}, config.defaults, values or {}) }
   )
-
-  theme.bufferline = { highlights = {} }
-  theme.bufferline.highlights = bufferline.highlights(config)
 end
 
-function theme.colorscheme()
+-- Entry point: "./colors/{...}" && ":colorscheme ..."
+function theme.load()
   if vim.version().minor < 8 then
     vim.notify(
-      'Neovim 0.8+ is required for kaolin-blossom colorscheme',
+      'Neovim 0.8+ is required for kaolin colorscheme',
       vim.log.levels.ERROR,
       { title = 'Min Theme' }
     )
@@ -385,10 +392,13 @@ function theme.colorscheme()
 
   vim.g.VM_theme_set_by_colorscheme = true
   vim.o.termguicolors = true
-  vim.g.colors_name = 'kaolin-blossom'
+  vim.g.colors_name = 'kaolin'
 
   set_terminal_colors()
   set_groups()
+
+  theme.bufferline = { highlights = {} }
+  theme.bufferline.highlights = bufferline.highlights(config, colorscheme)
 end
 
 return theme

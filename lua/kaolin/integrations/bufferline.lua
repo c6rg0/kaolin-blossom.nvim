@@ -1,9 +1,6 @@
-local kaolin_blossom = require 'kaolin-blossom.colorscheme'
-local colorscheme = kaolin_blossom.roles
-
 local M = {}
 
-function M.highlights(config)
+function M.highlights(config, colorscheme)
   local bg = config.transparent and 'NONE' or colorscheme.bg
 
   return {

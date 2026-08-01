@@ -1,9 +1,6 @@
-local kaolin_blossom = require 'kaolin-blossom.colorscheme'
-local colorscheme = kaolin_blossom.roles
-
 local M = {}
 
-function M.highlights()
+function M.highlights(colorscheme)
   return {
     CmpItemAbbr = { fg = colorscheme.fg },
     CmpItemAbbrDeprecated = { fg = colorscheme.fg, strikethrough = true },

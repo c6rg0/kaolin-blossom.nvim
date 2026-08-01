@@ -1,4 +1,4 @@
-local config = require 'kaolin-blossom.config'
+local config = require 'kaolin.config'
 
 local ansi_colours = {
   black = '#161618',
